@@ -1,6 +1,9 @@
 # Medical Appointment No-Show Analytics
 ### An end-to-end data science workflow using Python & Power BI to predict patient attendance through an ethics-aware lens.
 
+## Live Dashboard
+[View the interactive Power BI dashboard here](https://app.powerbi.com/links/PBKWM61lkS?ctid=c233c072-135b-431d-af59-35e05babf941&pbi_source=linkShare)
+
 ## Table of Contents
 - [Overview](#overview)
 - [Project Structure](#project-structure)
@@ -439,6 +442,11 @@ One of the main reflections from this project is that technical performance alon
 ## Deployment
 
 This project is currently structured as a repository-based analytics project rather than a fully deployed web application.
+
+### Power BI Dashboard
+The interactive Power BI dashboard can be accessed here:
+
+[View the live Power BI dashboard](https://app.powerbi.com/links/PBKWM61lkS?ctid=c233c072-135b-431d-af59-35e05babf941&pbi_source=linkShare)
 
 The main project components are stored in the GitHub repository, including:
 
