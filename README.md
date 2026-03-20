@@ -389,11 +389,23 @@ This helped improve usability for different audiences while keeping the visuals 
 
 ## Key Findings
 
-The project found that appointment no-show behaviour is not random and appears to be associated with a combination of scheduling, timing, patient, and location-based factors.
+The exploratory analysis and machine learning stage identified several clear patterns in appointment no-show behaviour across the dataset of 110,521 records.
 
-The exploratory analysis identified several meaningful patterns across the six hypotheses, including an observed association between neighbourhood and no-show behaviour. The machine learning stage then showed that no-show risk can be predicted to a useful degree, with Random Forest performing better than Logistic Regression on recall, F1-score, and ROC AUC.
+**Wait time was the strongest finding across the whole project.** No-show rates increased steadily as the gap between booking and appointment grew, rising from 4.6% for same-day appointments to 22.9% for 1–3 days, 30.5% for 8–14 days, and 33.0% for appointments booked more than 31 days in advance. This pattern was one of the clearest in the dataset and was supported by the correlation heatmap, where `wait_days` showed the strongest positive relationship with `no_show_flag` (r = 0.19). This suggests that reducing long waits between booking and appointment could be one of the more practical ways to improve attendance rates.
 
-These findings suggest that healthcare providers may be able to reduce missed appointments through earlier identification of higher-risk bookings and more targeted reminder or support strategies. However, any such use should remain ethically cautious and should avoid treating model output as a substitute for human judgement.
+**Age showed a clear association with no-show behaviour, though not in a straightforward way.** The highest no-show rate was seen in patients aged 18–34 (24.0%), followed by 0–17 (21.9%) and 35–49 (20.5%). Older patients showed lower rates, with 50–64 at 16.7% and 65+ at 15.5%. This could suggest that younger adults may benefit from different reminder approaches or more flexible scheduling options, though these are patterns in the data rather than firm conclusions about individual behaviour.
+
+**The SMS reminder result was unexpected and needs careful interpretation.** Appointments where a reminder was recorded actually had a higher no-show rate (27.6%) than those without one (16.7%). This is likely because reminders appear to have been sent more often to appointments with longer waiting times, rather than because the reminders themselves caused more missed appointments. The correlation heatmap showed a moderate relationship between `sms_received` and `wait_days` (r = 0.40), which supports this interpretation. This means SMS status on its own is not a reliable predictor of attendance.
+
+**Neighbourhood and scholarship status both showed differences in no-show rates.** Patients with a scholarship had a no-show rate of 23.7% compared with 19.8% for those without. No-show rates also varied across neighbourhoods, with Santos Dumont (28.9%), Santa Clara (26.5%), and Itararé (26.3%) among the higher rates for areas with at least 500 appointments. These differences may reflect wider issues around access, transport, or socioeconomic factors rather than individual behaviour, so they should be interpreted carefully.
+
+**The health profile result went in the opposite direction to what might be expected.** Patients with hypertension had a lower no-show rate (17.3%) compared with those without (20.9%), and a similar pattern was seen for diabetes (18.0% vs 20.4%). Patients with no recorded chronic conditions had the highest overall no-show rate at 20.9%. One possible explanation is that patients managing ongoing health conditions may be more regularly engaged with healthcare services, though this finding should not be over-interpreted beyond what the data shows.
+
+**Weekday patterns were visible but relatively small.** No-show rates across the main working week ranged from 19.3% on Thursday to 21.2% on Friday, which suggests that the day of the appointment is not as influential as other factors such as wait time or age group.
+
+**The machine learning stage showed that no-show risk can be predicted to a reasonable degree.** Random Forest performed better than Logistic Regression on the metrics most relevant to this problem, with a recall of 0.85, an F1-score of 0.44, and a ROC-AUC of 0.72, compared with 0.59, 0.41, and 0.67 for Logistic Regression. The most influential individual predictor in the model was `wait_days`, which is consistent with the EDA findings and adds some confidence that the model is picking up on meaningful patterns rather than noise.
+
+Overall, no-show behaviour appears to be driven by a mix of scheduling, timing, and access-related factors rather than any single variable. The findings suggest that practical improvements to service design — particularly around reducing long lead times and providing additional support for higher-risk booking groups — may be more useful than relying on prediction alone.
 
 ---
 
