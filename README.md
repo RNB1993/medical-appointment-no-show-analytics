@@ -61,7 +61,7 @@ medical-appointment-no-show-analytics/
 │   ├── 04_dashboard_excutive_overview.png
 │   ├── 04_dashboard_patient_behavior.png
 │   ├── 04_dashboard_tooltip_custom.png
-│   └── 05_github_project_board.png
+│   └── github_project_board.png
 ├── jupyter_notebooks/
 │   ├── 01_ETL.ipynb
 │   ├── 02_VIS.ipynb
@@ -457,15 +457,15 @@ The main project components are stored in the GitHub repository, including:
 
 This structure supports reproducibility and project review, while keeping each stage of the workflow clearly separated.
 
-# Clone the repo
+### Clone the repo
 ```bash
-   git clone [https://github.com/RNB1993/medical-appointment-no-show-analytics.git](https://github.com/RNB1993/medical-appointment-no-show-analytics.git)
+git clone https://github.com/RNB1993/medical-appointment-no-show-analytics.git
 ```
-# Install dependencies
+#### Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
-# Run the ETL notebook first
+#### Run notebooks in order
 
 01_ETL.ipynb → 02_VIS.ipynb → 03_ML.ipynb
 ---
