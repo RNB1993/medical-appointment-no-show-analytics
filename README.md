@@ -430,10 +430,11 @@ This structure supports reproducibility and project review, while keeping each s
 # Clone the repo
 ```bash
    git clone [https://github.com/RNB1993/medical-appointment-no-show-analytics.git](https://github.com/RNB1993/medical-appointment-no-show-analytics.git)
-
+```
 # Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 # Run the ETL notebook first
 01_ETL.ipynb → 02_VIS.ipynb → 03_ML.ipynb
 ---
