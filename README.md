@@ -1,4 +1,5 @@
 # Medical Appointment No-Show Analytics
+### An end-to-end data science workflow using Python & Power BI to predict patient attendance through an ethics-aware lens.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -268,6 +269,8 @@ Threshold tuning was also reviewed. A threshold of **0.5** gave the best overall
 
 The final selected Random Forest pipeline was then saved for reuse.
 
+**Why Recall?** In a healthcare setting, the cost of missing a "no-show" (a False Negative) is higher than accidentally sending a reminder to someone who was going to show up anyway. By prioritizing Recall, we ensure the model captures as many potential missed appointments as possible.
+
 ---
 
 ## The Rationale to Map the Business Requirements to the Data Visualisations
@@ -425,13 +428,14 @@ The main project components are stored in the GitHub repository, including:
 This structure supports reproducibility and project review, while keeping each stage of the workflow clearly separated.
 
 # Clone the repo
-git clone https://github.com/RNB1993/medical-appointment-no-show-analytics.git
+```bash
+   git clone [https://github.com/RNB1993/medical-appointment-no-show-analytics.git](https://github.com/RNB1993/medical-appointment-no-show-analytics.git)
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Run the ETL notebook first
-
+01_ETL.ipynb → 02_VIS.ipynb → 03_ML.ipynb
 ---
 
 ## Main Data Analysis Libraries
@@ -465,4 +469,4 @@ The main libraries used in this project include:
 
 ## Acknowledgements
 
-Thanks to the instructors, walkthrough materials, and feedback sources that supported the development of this project, as well as the broader learning content that helped shape the analytical and ethical approach used throughout.
+Thanks to the instructors (**Vasi, Mark, and Neil**), walkthrough materials, and feedback sources that supported the development of this project, as well as the broader learning content that helped shape the analytical and ethical approach used throughout.
