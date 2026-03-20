@@ -127,7 +127,7 @@ The project workflow was planned and tracked using a GitHub Project Board.
 
 ## Project Hypotheses and Validation
 
-The exploratory analysis was structured around six project hypotheses designed to test whether no-show behaviour was associated with different patient and scheduling characteristics.
+The exploratory analysis was structured around six project hypotheses designed to test whether no-show behaviour was associated with different patient, scheduling, socioeconomic, and health-related characteristics.
 
 ### Hypothesis 1: Lead Time Impact
 **Business question:**  
@@ -135,23 +135,31 @@ Are patients with longer wait times between booking and appointment more likely 
 
 ### Hypothesis 2: Reminder Effect
 **Business question:**  
-Do SMS reminders appear to influence no-show behaviour?
+Do SMS reminders appear to reduce the likelihood of a patient missing their appointment?
 
-### Hypothesis 3: Age Impact
+### Hypothesis 3: Age Demographics
 **Business question:**  
-Is age associated with appointment attendance behaviour?
+Do no-show rates vary across age groups, with younger adults more likely to miss appointments?
 
-### Hypothesis 4: Day-of-Week Effect
+### Hypothesis 4: Temporal Patterns
 **Business question:**  
-Does the appointment day of the week appear to influence no-show rates?
+Are appointments on certain weekdays associated with higher no-show rates than others?
 
-### Hypothesis 5: Same-Day Appointment Effect
+### Hypothesis 5: Socio-economic / Access Factors
 **Business question:**  
-Do same-day appointments behave differently from appointments booked further in advance?
+Do patients with indicators of greater socioeconomic or access-related disadvantage show different no-show behaviour?
 
-### Hypothesis 6: Neighbourhood Impact
+#### Hypothesis 5a: Scholarship
+**Business question:**  
+Is scholarship status associated with appointment attendance behaviour?
+
+#### Hypothesis 5b: Neighbourhood
 **Business question:**  
 Are there location-based differences in no-show behaviour?
+
+### Hypothesis 6: Health Profile
+**Business question:**  
+Do patients with chronic health conditions show different attendance patterns compared with patients without those conditions?
 
 These hypotheses were validated through comparative visual analysis using appropriate chart types for numeric and categorical features. The focus of this stage was on identifying interpretable business patterns rather than relying only on formal statistical testing.
 
@@ -165,10 +173,12 @@ The table below summarises the main outcome of each project hypothesis following
 |---|---|---|
 | Lead Time Impact | Longer waiting times appeared to be associated with higher no-show behaviour. | Supported |
 | Reminder Effect | SMS reminder patterns showed some differences in no-show behaviour, but the relationship should be interpreted cautiously. | Partially supported |
-| Age Impact | Attendance behaviour varied across age groups, suggesting age had some association with no-show patterns. | Supported |
-| Day-of-Week Effect | Some day-based variation was visible, although differences were less pronounced than other factors. | Partially supported |
-| Same-Day Appointment Effect | Same-day appointments showed different behaviour compared with appointments booked further in advance. | Supported |
-| Neighbourhood Impact | No-show behaviour varied across neighbourhoods, suggesting a location-based pattern in the data. | Supported |
+| Age Demographics | Attendance behaviour varied across age groups, suggesting age had an association with no-show patterns. | Supported |
+| Temporal Patterns | Some weekday variation was visible, although the differences were less pronounced than other factors. | Partially supported |
+| Socio-economic / Access Factors | Scholarship status and neighbourhood both showed variation in no-show behaviour, suggesting wider access-related or social factors may play a role. | Supported |
+| Hypothesis 5a: Scholarship | Patients with a scholarship showed a different no-show pattern from those without a scholarship. | Supported |
+| Hypothesis 5b: Neighbourhood | No-show behaviour varied across neighbourhoods, with some areas showing higher no-show rates than others. | Supported |
+| Health Profile | Patients with chronic health-condition indicators showed different attendance patterns compared with patients without those indicators. | Supported |
 
 ---
 
@@ -436,6 +446,7 @@ This structure supports reproducibility and project review, while keeping each s
 pip install -r requirements.txt
 ```
 # Run the ETL notebook first
+
 01_ETL.ipynb → 02_VIS.ipynb → 03_ML.ipynb
 ---
 
