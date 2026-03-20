@@ -2,9 +2,12 @@
 
 ## Table of Contents
 - [Overview](#overview)
+- [Project Structure](#project-structure)
 - [Dataset Content](#dataset-content)
 - [Business Requirements](#business-requirements)
+- [Project Management](#project-management)
 - [Project Hypotheses and Validation](#project-hypotheses-and-validation)
+- [Hypothesis Validation Summary](#hypothesis-validation-summary)
 - [Project Plan](#project-plan)
 - [Data Collection, Cleaning and Preparation](#data-collection-cleaning-and-preparation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
@@ -33,9 +36,43 @@ The project is organised into separate notebooks for ETL, EDA, and machine learn
 
 ---
 
+## Project Structure
+
+The repository is organised so that each stage of the analytics workflow has a clear location for inputs, outputs, notebooks, and dashboard assets.
+
+```text
+medical-appointment-no-show-analytics/
+├── dashboards/
+│   └── 04_medical_noshow_analytics_v1.pbix
+├── data/
+│   ├── raw/
+│   │   └── KaggleV2-May-2016.csv
+│   └── processed/
+│       ├── medical_appointments_cleaned.csv
+│       ├── models/
+│       │   └── v1/
+│       └── outputs/
+│           └── v1/
+├── images/
+│   ├── 04_dashboard_excutive_overview.png
+│   ├── 04_dashboard_patient_behavior.png
+│   ├── 04_dashboard_tooltip_custom.png
+│   └── 05_github_project_board.png
+├── jupyter_notebooks/
+│   ├── 01_ETL.ipynb
+│   ├── 02_VIS.ipynb
+│   └── 03_ML.ipynb
+├── README.md
+└── requirements.txt
+```
+
+The project is organised into separate folders for notebooks, processed data, dashboard assets, and supporting images so that each stage of the workflow is easy to follow and review.
+
+---
+
 ## Dataset Content
 
-The dataset used in this project is the **Medical Appointment No Shows** dataset. It contains appointment booking information, patient characteristics, health-related indicators, and a target field showing whether the patient attended or missed the appointment.
+The dataset used in this project is the **Medical Appointment No Shows** dataset, sourced from **Kaggle**. It contains appointment booking information, patient characteristics, health-related indicators, and a target field showing whether the patient attended or missed the appointment.
 
 After the ETL and cleaning stage, the final working dataset contained **110,521 rows and 22 columns**. In addition to the original fields, new analytical features were created to better support exploratory analysis and modelling. These included:
 
@@ -64,6 +101,26 @@ The business requirements for this project were:
 - to ensure that privacy, fairness, and ethical use were considered throughout the project rather than only at the end
 
 This project was designed as a decision-support exercise. The goal is to improve understanding and support planning, not to make automated or punitive decisions about individual patients.
+
+---
+
+## Project Management
+
+This project was managed using a GitHub Project Board to organise the work into clear phases and track progress across the full analytics workflow.
+
+The board was structured using three workflow stages:
+
+- **Backlog** for planned work not yet started
+- **In Progress** for active tasks being worked on
+- **Done** for completed stages of the project
+
+This helped keep the workflow structured and made it easier to manage the project from business scoping and ethics through to ETL, analysis, modelling, dashboard design, and final documentation.
+
+### GitHub Project Board
+
+The project workflow was planned and tracked using a GitHub Project Board.
+
+![GitHub Project Board](images/github_project_board.png)
 
 ---
 
@@ -99,27 +156,52 @@ These hypotheses were validated through comparative visual analysis using approp
 
 ---
 
+## Hypothesis Validation Summary
+
+The table below summarises the main outcome of each project hypothesis following exploratory analysis. Validation was based on visual and comparative analysis of the cleaned dataset, with findings interpreted in a business and ethics-aware context.
+
+| Hypothesis | Summary Finding | Outcome |
+|---|---|---|
+| Lead Time Impact | Longer waiting times appeared to be associated with higher no-show behaviour. | Supported |
+| Reminder Effect | SMS reminder patterns showed some differences in no-show behaviour, but the relationship should be interpreted cautiously. | Partially supported |
+| Age Impact | Attendance behaviour varied across age groups, suggesting age had some association with no-show patterns. | Supported |
+| Day-of-Week Effect | Some day-based variation was visible, although differences were less pronounced than other factors. | Partially supported |
+| Same-Day Appointment Effect | Same-day appointments showed different behaviour compared with appointments booked further in advance. | Supported |
+| Neighbourhood Impact | No-show behaviour varied across neighbourhoods, suggesting a location-based pattern in the data. | Supported |
+
+---
+
 ## Project Plan
 
-The project followed a structured end-to-end workflow:
+The project was planned and tracked through a GitHub Project Board. Rather than treating the work as one large task, it was broken into a series of defined project stages.
 
-### 1. Data collection and understanding
-The raw dataset was sourced and reviewed to understand the available fields, the target variable, and the data types involved.
+The board was used to move work through backlog, in progress, and done stages so that the project could be tracked from initial scoping through to final documentation and submission.
 
-### 2. ETL and cleaning
-Column names were standardised, date fields were converted, invalid values were removed, and new time-based features were created to improve downstream analysis.
+### Project phases
 
-### 3. Exploratory data analysis
-A hypothesis-driven EDA process was used to explore which factors appeared most associated with no-show behaviour.
+#### 1. Business Scoping & Ethics
+This phase focused on defining the problem, setting the business requirements, and identifying ethical considerations early in the project. This included thinking about privacy, fairness, sensitive features, and the responsible use of predictive modelling in a healthcare-related context.
 
-### 4. Machine learning
-Classification models were trained and compared to assess whether no-show risk could be predicted from the cleaned features.
+#### 2. Project Planning & Setup
+This phase focused on setting up the repository structure, preparing the working environment, and organising the notebooks, folders, and outputs needed for the project workflow.
 
-### 5. Dashboard design
-The main findings were translated into Power BI pages designed to communicate key trends, KPIs, and operational insights clearly.
+#### 3. ETL & Data Preparation
+This phase covered data loading, cleaning, transformation, feature engineering, and preparation of the final cleaned dataset for analysis and modelling.
 
-### 6. Reflection and ethics
-Privacy, fairness, and responsible use were considered throughout the project, particularly in relation to sensitive patient features and the interpretation of socio-economic patterns.
+#### 4. Exploratory Data Analysis
+This phase focused on testing the project hypotheses and identifying key patterns in no-show behaviour through visual and comparative analysis.
+
+#### 5. ML Development & Evaluation
+This phase focused on building, comparing, and evaluating classification models to predict likely no-shows, with model selection based on the most appropriate performance metrics for the business goal.
+
+#### 6. Dashboard Design & Build
+This phase focused on translating the analytical findings into a Power BI dashboard that could communicate key insights clearly to both technical and non-technical users.
+
+#### 7. Review, Reflection & Iteration
+This phase focused on reviewing the outputs, refining the analysis, checking consistency across notebooks and dashboard outputs, and reflecting on areas for improvement.
+
+#### 8. Final Documentation & Submission
+This phase focused on preparing the README, checking that the project met the assessment criteria, and ensuring the final submission was clearly documented and presented.
 
 ---
 
@@ -314,15 +396,17 @@ A second limitation is that dashboard polish and presentation can continue to be
 
 ## Development Roadmap
 
-There are several areas that could be developed further in a future version of the project.
+Although the core project workflow was structured and delivered through the GitHub Project Board phases, there are still several areas that could be improved in a future iteration of the project.
 
-- expand model tuning and compare additional algorithms
-- add more formal fairness checks across relevant subgroups
-- improve explainability outputs for the final selected model
-- continue refining dashboard interaction and presentation
-- explore how the workflow could be packaged into a more reusable analytical product
+Possible next steps include:
 
-One of the main learning points from the project was that strong technical results still need careful interpretation, especially when working with healthcare-related and socio-economic features. A future version would therefore place even more emphasis on fairness review and responsible deployment thinking.
+- further model tuning and comparison with additional algorithms
+- more detailed fairness review across relevant subgroups
+- stronger explainability outputs for the final selected model
+- additional dashboard refinement and interaction improvements
+- extending the project into a more reusable or semi-automated analytical product
+
+One of the main reflections from this project is that technical performance alone is not enough. Future development would therefore place even more emphasis on fairness, interpretability, and responsible use.
 
 ---
 
