@@ -403,6 +403,7 @@ Possible next steps include:
 - further model tuning and comparison with additional algorithms
 - more detailed fairness review across relevant subgroups
 - stronger explainability outputs for the final selected model
+- adding a dedicated model risk and ethics dashboard page to show feature importance, subgroup performance, and fairness checks
 - additional dashboard refinement and interaction improvements
 - extending the project into a more reusable or semi-automated analytical product
 
@@ -422,6 +423,14 @@ The main project components are stored in the GitHub repository, including:
 - project images and supporting assets
 
 This structure supports reproducibility and project review, while keeping each stage of the workflow clearly separated.
+
+# Clone the repo
+git clone https://github.com/RNB1993/medical-appointment-no-show-analytics.git
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the ETL notebook first
 
 ---
 
