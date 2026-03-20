@@ -172,7 +172,7 @@ The table below summarises the main outcome of each project hypothesis following
 | Hypothesis | Summary Finding | Outcome |
 |---|---|---|
 | Lead Time Impact | Longer waiting times appeared to be associated with higher no-show behaviour. | Supported |
-| Reminder Effect | SMS reminder patterns showed some differences in no-show behaviour, but the relationship should be interpreted cautiously. | Partially supported |
+| Reminder Effect | SMS recipients showed higher no-show rates, likely reflecting confounding with wait time | Not supported |
 | Age Demographics | Attendance behaviour varied across age groups, suggesting age had an association with no-show patterns. | Supported |
 | Temporal Patterns | Some weekday variation was visible, although the differences were less pronounced than other factors. | Partially supported |
 | Socio-economic / Access Factors | Scholarship status and neighbourhood both showed variation in no-show behaviour, suggesting wider access-related or social factors may play a role. | Supported |
@@ -268,8 +268,8 @@ Model evaluation used a range of classification metrics so that performance coul
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC AUC |
 |---|---:|---:|---:|---:|---:|
-| Logistic Regression | 0.6546 | 0.3107 | 0.5832 | 0.4055 | 0.6687 |
-| Random Forest | 0.5678 | 0.2985 | 0.8449 | 0.4412 | 0.7193 |
+| Logistic Regression | 0.6540 | 0.3107 | 0.5832 | 0.4055 | 0.6693 |
+| Random Forest | 0.5661 | 0.2985 | 0.8519 | 0.4412 | 0.7193 |
 
 Although Logistic Regression achieved higher accuracy, Random Forest performed better on recall, F1-score, and ROC AUC.
 
